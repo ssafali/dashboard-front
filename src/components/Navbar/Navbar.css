@@ -1,0 +1,90 @@
+/* .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #efeded;
+    padding: 10px 20px;
+    font-weight: 600;
+  
+    background-color: transparent;
+    background-repeat:no-repeat;
+    color: beige;
+
+    width: 205vh;
+    height: 5vh;
+} */
+
+header {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.headerHome {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+.navLi {
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+}
+
+.navButton {
+    font-size: 16px;
+    font-weight: 500px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+    border: 0;
+    padding: 9px 25px;
+}
+
+nav li a:hover {
+    color: #fd5e53;
+    transition: all 0.4s ease 0s;
+}
+
+
+/* .navbar a {
+    list-style: none;
+    background: none;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 20px;
+    
+}
+
+.headerHome {
+    font-weight: 1200;
+    color: beige;
+}
+
+.navbar button {
+
+    border: none;
+    color:beige; 
+}
+
+.navbar button:hover {
+    font-size: 1.1rem;
+    transition: 0.5s;
+    text-decoration: underline;
+}
+
+.navbar .button:active {
+    text-decoration: underline;
+} */
+  
