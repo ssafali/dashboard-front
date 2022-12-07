@@ -2,13 +2,10 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ThemeContext } from "../../context/theme.context";
-import { useContext } from "react";
 
 const API_URL = "http://localhost:5005";
 
 function SignupPage() {
-  const { theme, toggleTheme } = useContext(ThemeContext)
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +23,7 @@ function SignupPage() {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, userName };
+    const requestBody = { email, password, userName, location };
 
     // Make an axios request to the API
     // If POST request is successful redirect to login page
@@ -42,16 +39,16 @@ function SignupPage() {
   };
 
   return (
-    <div className={"SignupPage " + theme}>
+    <div className="SignupPage">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-
+        <br/>
         <label>Username:</label>
         <input type="text" name="name" value={userName} onChange={handleUsername} />
-
+        <br/>
         <label>Password:</label>
         <input
           type="password"
@@ -59,11 +56,12 @@ function SignupPage() {
           value={password}
           onChange={handlePassword}
         />
+        <br/>
 
         <label>Location:</label>
         <input type="text" name="name" value={location} onChange={handleLocation} />
       
-        <button className="signup-button" type="submit">Sign Up</button>
+        <button className="signup-button" type="submit" value="signup">Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
