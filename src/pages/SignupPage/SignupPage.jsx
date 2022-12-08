@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../../components/Navbar/Navbar";
 
 const API_URL = "http://localhost:5005";
 
@@ -40,6 +41,7 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
+      <Navbar/>
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>

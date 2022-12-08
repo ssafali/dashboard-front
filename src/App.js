@@ -42,6 +42,25 @@ function App() {
             </IsAnon>
           }
         />
+
+        {/* <Route
+          path="/todos"
+          element={
+            <IsPrivate>
+              <ToDoPage />
+            </IsPrivate>
+          }
+            /> */}
+
+        {/* <Route
+          path="/notes"
+          element={
+            <IsPrivate>
+              <NotesPage />
+            </IsPrivate>
+          }
+        /> */}
+
       </Routes>
     </div>
   );

@@ -8,26 +8,34 @@ function Navbar() {
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
-  return (   
-    <header className="header">
-      <nav className="navbar">
-      <Link  to="/" className="headerHome" id="navHome"><button>Home</button></Link>
+  return (
+    <header>
+      <div >
+        <Link to="/" >
+          <p className="headerHome">Home</p>
+        </Link>
+      </div>
 
-        {isLoggedIn && (
-          <>
-            <Link to="/" className={({ isActive }) => isActive && "selected"}><button>Login</button></Link>
-            <button onClick={logOutUser}>Logout</button>
-            <span>{user && user.name}</span>
-          </>
-        )}
-        <div>
-          {!isLoggedIn && (
-            <>
-              <Link to="/signup" className={({ isActive }) => isActive && "selected"}> <button>Sign Up</button> </Link>
-              <Link to="/login" className={({ isActive }) => isActive && "selected"}> <button>Login</button> </Link>
-            </>
-          )}
-        </div>
+      <nav className="navbar">
+        <ul>
+            {isLoggedIn && (
+              <li className="navLi">
+                <Link to="/" className={({ isActive }) => isActive && "selected"}><button className="navButton">Login</button></Link>
+                <button onClick={logOutUser} className="navButton">Logout</button>
+                <button  className="navButton">Settings</button>
+
+                <span>{user && user.name}Here's a span tag of the user name.</span>
+              </li>
+            )}
+         
+            {!isLoggedIn && (
+              <li className="navLi">
+                <Link to="/signup" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Sign Up</button> </Link>
+                <Link to="/login" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Login</button> </Link>
+              </li>
+            )}
+          
+        </ul>
       </nav>
     </header>
   );
