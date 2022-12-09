@@ -5,18 +5,19 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
-
+import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
-
+    
   return (
     <div className="App">
-
+    <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage />} />
-
+        <Route path="/" element={<Dashboard />} />
         <Route
           path="/profile"
           element={
@@ -42,25 +43,6 @@ function App() {
             </IsAnon>
           }
         />
-
-        {/* <Route
-          path="/todos"
-          element={
-            <IsPrivate>
-              <ToDoPage />
-            </IsPrivate>
-          }
-            /> */}
-
-        {/* <Route
-          path="/notes"
-          element={
-            <IsPrivate>
-              <NotesPage />
-            </IsPrivate>
-          }
-        /> */}
-
       </Routes>
     </div>
   );

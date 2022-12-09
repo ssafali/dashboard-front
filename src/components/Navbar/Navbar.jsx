@@ -11,9 +11,7 @@ function Navbar() {
   return (
     <header>
       <div >
-        <Link to="/" >
-          <p className="headerHome">Home</p>
-        </Link>
+        <p className="headerHome">Navbar</p>
       </div>
 
       <nav className="navbar">
@@ -30,6 +28,7 @@ function Navbar() {
          
             {!isLoggedIn && (
               <li className="navLi">
+                <Link to="/" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Home</button> </Link>
                 <Link to="/signup" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Sign Up</button> </Link>
                 <Link to="/login" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Login</button> </Link>
               </li>

@@ -1,8 +1,32 @@
-.dashboard {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.home-page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+.icons-svg {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  cursor: pointer;
+  text-align: center;
+}
+
+.todo-svg {
+  transition: 0.1s;
+}
+
+.notes-svg {
+    transition: 0.1s;
+    margin-bottom: 14px;
+}
+
+.todo-svg:hover {
+    transform: translateY(-5px);
+}
+
+.notes-svg:hover {
+    transform: translateY(-5px);
+}

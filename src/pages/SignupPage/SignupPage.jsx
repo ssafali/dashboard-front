@@ -2,7 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../../components/Navbar/Navbar";
+import Location from "../../components/Location Search/Location";
 
 const API_URL = "http://localhost:5005";
 
@@ -12,6 +12,9 @@ function SignupPage() {
   const [password, setPassword] = useState("");
   const [userName, setUsername] = useState("");
   const [location, setLocation] = useState("");
+  const [cityCode, setCityCode] = useState("")
+  const [countryCode, setCountryCode] = useState("")
+
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -19,10 +22,26 @@ function SignupPage() {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleUsername = (e) => setUsername(e.target.value);
-  const handleLocation = (e) => setLocation(e.target.value);
+  //const handleOnSearchChange = (searchData) => console.log(searchData)
+  // {console.log(`${searchData.label.split(" ")[0]} + 
+  // // ${searchData.label.split(" ")[1]}`)}
+
+
+  // const handleLocation = (e) => setLocation(e.target.value);
+  const handleOnSearchChange = (e) => {
+    console.log(e)
+    console.log(e.label)
+
+    // setCityCode(e.label.split(" ")[0])
+    // setCountryCode(e.label.split(" ")[1])
+    // console.log({e})
+    setLocation(`${e.label.split(" ")[0]} ${e.label.split(" ")[1]}`)
+    console.log(location)
+  } 
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
+    console.log(location)
     // Create an object representing the request body
     const requestBody = { email, password, userName, location };
 
@@ -40,17 +59,17 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <Navbar/>
+    <div className="signup-page">
+      
       <h1>Sign Up</h1>
 
-      <form onSubmit={handleSignupSubmit}>
+      <form className="signup-form" onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
-        <br/>
+        
         <label>Username:</label>
         <input type="text" name="name" value={userName} onChange={handleUsername} />
-        <br/>
+        
         <label>Password:</label>
         <input
           type="password"
@@ -58,10 +77,9 @@ function SignupPage() {
           value={password}
           onChange={handlePassword}
         />
-        <br/>
-
         <label>Location:</label>
-        <input type="text" name="name" value={location} onChange={handleLocation} />
+        <Location value={location}  onSearchChange={handleOnSearchChange}/>
+        {/* <input type="text" name="name" value={location} onChange={handleLocation} /> */}
       
         <button className="signup-button" type="submit" value="signup">Sign Up</button>
       </form>

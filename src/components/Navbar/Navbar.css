@@ -20,8 +20,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
-    background: rgba(0, 0, 0, 0.2);
+    padding: 50px 10%;
+    background: rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
 }
 
 .headerHome {

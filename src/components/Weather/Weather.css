@@ -1,0 +1,49 @@
+.weatherContainer {
+    max-width: 350px;
+    height: 220px;
+
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    padding: 0 1rem;
+    top: 10%;
+    justify-content: space-between;
+}
+
+.weatherApp .weatherTop {
+    width: 120%;
+    margin: 1rem auto;
+
+}
+
+.weatherApp .weatherDescription{
+    position: relative;
+    top: 110%;
+    right: 0%;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+}
+
+.weatherDescription p {
+    font-size: larger;
+}
+
+.weatherApp .weatherBottom {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 120%;
+    margin: 0rem auto;
+    padding: 1rem;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.svgIcon {
+    height: 160px;
+}
