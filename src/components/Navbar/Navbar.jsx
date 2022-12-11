@@ -11,29 +11,25 @@ function Navbar() {
   return (
     <header>
       <div >
-        <p className="headerHome">Navbar</p>
+        <Link to="/" className="headerLogo">Dashy</Link>
       </div>
 
       <nav className="navbar">
         <ul>
             {isLoggedIn && (
               <li className="navLi">
-                <Link to="/" className={({ isActive }) => isActive && "selected"}><button className="navButton">Login</button></Link>
-                <button onClick={logOutUser} className="navButton">Logout</button>
-                <button  className="navButton">Settings</button>
-
-                <span>{user && user.name}Here's a span tag of the user name.</span>
+                <Link  className="navButton">Settings</Link>
+                <Link className="navButton" onClick={logOutUser} >Logout</Link>
               </li>
             )}
          
             {!isLoggedIn && (
               <li className="navLi">
-                <Link to="/" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Home</button> </Link>
-                <Link to="/signup" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Sign Up</button> </Link>
-                <Link to="/login" className={({ isActive }) => isActive && "selected"}> <button className="navButton">Login</button> </Link>
+                <Link to="/" className="navButton"> Home </Link>
+                <Link to="/signup" className="navButton">Sign Up</Link>
+                <Link to="/login" className="navButton">Login</Link>
               </li>
             )}
-          
         </ul>
       </nav>
     </header>

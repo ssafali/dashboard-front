@@ -9,7 +9,7 @@ function ClockPomodoro() {
     useEffect(() => {
         setInterval(() => {
             setClock(moment().format('HH:mm'))
-            setSec(moment().seconds())
+            setSec(moment().second())
         },1000)
     },[])
     return (

@@ -21,30 +21,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 50px 10%;
-    background: rgba(0, 0, 0, 0.03);
+    background: rgba(0, 0, 0, 0.02);
     box-sizing: border-box;
-}
-
-.headerHome {
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-}
-
-.navLi {
-    display: inline-block;
-    list-style: none;
-    padding: 0px 20px;
-}
-
-.navButton {
-    font-size: 16px;
-    font-weight: 500px;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 button {
@@ -53,38 +31,42 @@ button {
     padding: 9px 25px;
 }
 
-nav li a:hover {
-    color: #fd5e53;
-    transition: all 0.4s ease 0s;
-}
-
-
-/* .navbar a {
-    list-style: none;
-    background: none;
+.headerLogo {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1.5px;
+    cursor: pointer;
     text-decoration: none;
+    opacity: 0.88;
+}
+
+.headerLogo:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.navLi {
     display: inline-block;
-    margin: 5px 20px;
-    
+    list-style: none;
+    padding: 15px 0px 0px 20px;
 }
 
-.headerHome {
-    font-weight: 1200;
-    color: beige;
+.navButton {
+    font-size: 16px;
+    font-weight: 500px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    padding-left: 40px;
+    opacity: 0.88;
+    font-weight: 550;
 }
 
-.navbar button {
-    border: none;
-    color:beige; 
+.navButton:hover {
+    opacity: 1;
+    color: #fff;
 }
 
-.navbar button:hover {
-    font-size: 1.1rem;
-    transition: 0.5s;
-    text-decoration: underline;
-}
 
-.navbar .button:active {
-    text-decoration: underline;
-} */
   

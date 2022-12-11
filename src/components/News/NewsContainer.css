@@ -1,0 +1,88 @@
+.news-container {
+    font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    margin-top: 50px;
+    height: 260px;
+    padding: 20px 20px;
+    gap: 26px;
+    width: 1200px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.news-container img {
+    width: 210px;
+    height: 120px;
+    margin-left: 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+.news-card {
+    width: 450px;
+    min-width: 310px;
+    transition: 0.5s ease;
+    text-align: center;
+}
+.news-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.news-card:hover {
+    transform: scale(0.98);
+    cursor: pointer;
+  }
+
+.title {
+    color: ivory;
+    font-weight:550;
+    font-size: 13.5px;
+    width: 260px;
+}
+
+.description {
+    color: ivory;
+    font-size: 11px;
+    width: 280px;
+    display: flex;
+    text-align: left;
+}
+
+.source {
+    color: ivory;
+    text-align: center;
+    margin-left: 30px;
+    background-color: rgba(206, 11, 11, 0.705);
+    height: 1.3rem;
+    width: 68%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+}
+
+.category-buttons {
+    display: flex;
+    flex-direction: row;
+    color: ivory;
+    border: none;
+    position: absolute;
+    justify-content: space-evenly;
+    background-color: unset;
+    margin-top: 190px;
+}
+
+.category-buttons button {
+    color: ivory;
+    font-size: 15px;
+    padding: 8px;
+}

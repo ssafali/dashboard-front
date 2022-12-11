@@ -37,7 +37,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="login-page">
       <h1>Login</h1>
       <form className="login-form" onSubmit={handleLoginSubmit}>
         <label>Email:</label>
@@ -62,8 +62,10 @@ function LoginPage() {
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <div className="signup-container">
+        <p>Don't have an account yet?</p>
+        <Link className="signup-button" to={"/signup"}> Sign Up</Link>
+      </div>
     </div>
   );
 }

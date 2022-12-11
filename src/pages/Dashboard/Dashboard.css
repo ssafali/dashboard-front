@@ -1,0 +1,66 @@
+.dashboard {
+    font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.icons-svg {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.icons-svg p {
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.todo-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    cursor: pointer;
+}
+
+.todo-svg {
+    transition: 0.1s;
+    height: 6rem;
+    margin-bottom: -10px;
+}
+
+.todo-svg:hover {
+    transform: translateY(-5px);
+}
+
+.notes-svg {
+    transition: 0.1s;
+    margin-bottom: 14px;
+}
+
+.notes-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: fixed;
+    right: 8%;
+    bottom: 2%;
+    cursor: pointer;
+}
+
+
+.notes-svg:hover {
+    transform: translateY(-5px);
+}

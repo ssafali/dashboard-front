@@ -1,27 +1,15 @@
 import "./HomePage.css";
-import LoginPage from "../LoginPage/LoginPage"
-import SignupPage from "../SignupPage/SignupPage"
-import ClockPomodoro from "../../components/Clock-Pomodoro/ClockPomodoro";
-import todoSVG from '../../assets/misc/todo-2.svg'
-import notesSVG from '../../assets/misc/notes.svg'
-import Weather from "../../components/Weather/Weather";
+import Dashboard from "../Dashboard/Dashboard";
+import { AuthContext } from "../../context/auth.context";
+import { useContext } from "react";
+
 
 function HomePage() {
+const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   
   return (
     <div className="home-page">
-      <div>
-          <ClockPomodoro/>
-      </div>
-      <div>
-        <Weather/>
-      </div>
-
-      <div className="icons-svg">
-          <img className='todo-svg' src={todoSVG} width="64px"/>
-          <img className='notes-svg'src={notesSVG} width="32px"/>
-      </div>
-
+      {isLoggedIn &&(<Dashboard/>)}
     </div>
   );
 }

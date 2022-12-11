@@ -10,7 +10,7 @@ function SignupPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userName, setUsername] = useState("");
+  const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [cityCode, setCityCode] = useState("")
   const [countryCode, setCountryCode] = useState("")
@@ -21,7 +21,7 @@ function SignupPage() {
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
-  const handleUsername = (e) => setUsername(e.target.value);
+  const handleName = (e) => setName(e.target.value);
   //const handleOnSearchChange = (searchData) => console.log(searchData)
   // {console.log(`${searchData.label.split(" ")[0]} + 
   // // ${searchData.label.split(" ")[1]}`)}
@@ -43,7 +43,7 @@ function SignupPage() {
     e.preventDefault();
     console.log(location)
     // Create an object representing the request body
-    const requestBody = { email, password, userName, location };
+    const requestBody = { email, password, name, location };
 
     // Make an axios request to the API
     // If POST request is successful redirect to login page
@@ -68,7 +68,7 @@ function SignupPage() {
         <input type="email" name="email" value={email} onChange={handleEmail} />
         
         <label>Username:</label>
-        <input type="text" name="name" value={userName} onChange={handleUsername} />
+        <input type="text" name="name" value={name} onChange={handleName} />
         
         <label>Password:</label>
         <input

@@ -7,8 +7,6 @@ function Location({ onSearchChange }) {
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
 
-
-  
   const loadOptions = (inputValue) => {
     return fetch(
       `${GEO_API_URL}/cities?minPopulation=50000&excludedCountryCodes=KP&namePrefix=${inputValue}`,
