@@ -7,6 +7,22 @@ const SettingsContextProvider = (props) => {
     const [executing, setExecuting] = useState({});
     const [startAnimate, setStartAnimate] = useState(false);
 
+
+    // const audio = new Audio(NotificationSound);
+
+
+    // import NotificationSound from '../../../assets/misc/success.mp3'
+    // function playAudio() {
+    //     return audio.play();
+    //   }
+
+    //   if({pomodoro} === 2) {
+    //     playAudio();
+    //   }
+
+
+
+
     const startTimer = () => {
         setStartAnimate(true);
     }
@@ -37,6 +53,10 @@ const SettingsContextProvider = (props) => {
         setTimer(updatedSettings)
     }
 
+    const stopAnimate = () => {
+        setStartAnimate(false)
+    }
+
     const setTimer = evaluate => {
         switch (evaluate.active) {
             case 'work':
@@ -54,9 +74,9 @@ const SettingsContextProvider = (props) => {
         }
     }
 
-    const children = ({remainingTimer}) => {
-        const minutes = Math.floor(remainingTimer / 60);
-        const seconds = remainingTimer % 60;
+    const children = ({remainingTime}) => {
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = remainingTime % 60;
         return `${minutes}:${seconds}`
     }
 
@@ -72,6 +92,8 @@ const SettingsContextProvider = (props) => {
             pauseTimer,
             settingButton,
             setCurrentTimer,
+            stopAnimate,
+            children
             }}>
             {props.children}
         </SettingContext.Provider>

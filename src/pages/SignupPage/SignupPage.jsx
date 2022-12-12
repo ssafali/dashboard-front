@@ -12,9 +12,6 @@ function SignupPage() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
-  const [cityCode, setCityCode] = useState("")
-  const [countryCode, setCountryCode] = useState("")
-
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -22,26 +19,12 @@ function SignupPage() {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
-  //const handleOnSearchChange = (searchData) => console.log(searchData)
-  // {console.log(`${searchData.label.split(" ")[0]} + 
-  // // ${searchData.label.split(" ")[1]}`)}
-
-
-  // const handleLocation = (e) => setLocation(e.target.value);
   const handleOnSearchChange = (e) => {
-    console.log(e)
-    console.log(e.label)
-
-    // setCityCode(e.label.split(" ")[0])
-    // setCountryCode(e.label.split(" ")[1])
-    // console.log({e})
     setLocation(`${e.label.split(" ")[0]} ${e.label.split(" ")[1]}`)
-    console.log(location)
   } 
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    console.log(location)
     // Create an object representing the request body
     const requestBody = { email, password, name, location };
 
@@ -60,9 +43,7 @@ function SignupPage() {
 
   return (
     <div className="signup-page">
-      
       <h1>Sign Up</h1>
-
       <form className="signup-form" onSubmit={handleSignupSubmit}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
@@ -79,17 +60,12 @@ function SignupPage() {
         />
         <label>Location:</label>
         <Location value={location}  onSearchChange={handleOnSearchChange}/>
-        {/* <input type="text" name="name" value={location} onChange={handleLocation} /> */}
-      
         <button className="signup-button" type="submit" value="signup">Sign Up</button>
       </form>
-
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-
       <p>Already have account?</p>
       <Link to={"/login"}> Login</Link>
     </div>
   );
 }
-
 export default SignupPage;

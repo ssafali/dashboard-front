@@ -1,14 +1,16 @@
 .weatherContainer {
     max-width: 350px;
     height: 220px;
-
     display:flex;
     flex-direction: column;
     text-align: center;
     margin: auto;
     padding: 0 1rem;
-    top: 10%;
+    top: 20%;
+    right: 3%;
     justify-content: space-between;
+    position: absolute;
+
 }
 
 .weatherApp .weatherTop {

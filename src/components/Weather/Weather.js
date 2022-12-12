@@ -15,15 +15,9 @@ import { AuthContext } from '../../context/auth.context';
 
 function Weather() {
     //Getting the location information from Location.js
-   // const handleLocation = (e) => setLocation(e.target.value);
     
     const {user} = useContext(AuthContext);
-    const userId = user._id;
-    
-
-    // console.log(AuthContext)
-    // console.log(user)
-
+    const _id = user._id;
 
     const [data, setData] = useState({});
     const [svg, setSvg] = useState();
@@ -32,34 +26,28 @@ function Weather() {
     
     const API_URL = "http://localhost:5005";
 
-    // useEffect(() => {
-    //   axios.get(`${API_URL}/users/${userId}`)
-    //   .then((response) => {
-    //     console.log(response.data)
-    //     // setCity(response.user.location.split(' ')[0])
-    //     // setCountryCode(response.user.location.split(' ')[1])
-    //     // console.log(city, countryCode)
-    //   })
-    //   .catch((error) => {
-    //     // const errorDescription = error.response.data.message;
-    //     // setErrorMessage(errorDescription);
-    //     console.log(error)
-    //   })
-    // }, [userId])
+    useEffect(() => {
+      axios.get(`${API_URL}/users/${_id}`)
+      .then((response) => {
+        console.log(response.data.user)
+        setCity(response.data.user.location.split(' ')[0])
+        setCountryCode(response.data.user.location.split(' ')[1])
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    }, [_id])
     
-    //const URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_KEY}`
-    //const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}${countryCode}&appid=${process.env.REACT_APP_WEATHER_KEY}`
-    //const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}`
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}${countryCode}&appid=${process.env.REACT_APP_WEATHER_KEY}`
     
-    // useEffect(() => {
-    //     axios
-    //         .get(URL)
-    //         .then((response) => {setData(response.data)
-    //         checkCondition(response.data.weather[0].main);
-    //         })
-            
-    //         .catch((err) => console.log(err));
-    // }, [])
+    useEffect(() => {
+        axios
+            .get(URL)
+            .then((response) => {setData(response.data)
+            checkCondition(response.data.weather[0].main);
+            })
+            .catch((err) => console.log(err));
+    }, [])
 
     // const weatherCondition = data.weather ? data?.weather[0]?.main : "";
 

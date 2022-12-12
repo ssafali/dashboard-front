@@ -5,7 +5,7 @@ import { useContext } from "react";
 
 
 function HomePage() {
-const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+const { isLoggedIn } = useContext(AuthContext);
   
   return (
     <div className="home-page">

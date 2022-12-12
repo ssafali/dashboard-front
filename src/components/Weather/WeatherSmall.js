@@ -10,20 +10,17 @@ import fogSVG from '../../assets/weather/fog.svg'
 import drizzleSVG from '../../assets/weather/drizzle.svg'
 import cloudsSVG from '../../assets/weather/cloudy.svg'
 import clearDaySVG from '../../assets/weather/clear-day.svg'
-import { AuthContext } from '../../context/auth.context';
+import clearNightSVG from '../../assets/weather/clear-night.svg'
 
+import { AuthContext } from '../../context/auth.context';
+import moment from 'moment';
 
 function Weather() {
-    //Getting the location information from Location.js
-    // const handleLocation = (e) => setLocation(e.target.value);
+    
+    const time = moment().hours()
 
     const { user } = useContext(AuthContext);
-    const userId = user._id;
-
-
-    // console.log(AuthContext)
-    // console.log(user)
-
+    const _id = user._id;
 
     const [data, setData] = useState({});
     const [svg, setSvg] = useState();
@@ -32,38 +29,38 @@ function Weather() {
 
     const API_URL = "http://localhost:5005";
 
-    // useEffect(() => {
-    //   axios.get(`${API_URL}/users/${userId}`)
-    //   .then((response) => {
-    //     console.log(response.data)
-    //     // setCity(response.user.location.split(' ')[0])
-    //     // setCountryCode(response.user.location.split(' ')[1])
-    //     // console.log(city, countryCode)
-    //   })
-    //   .catch((error) => {
-    //     // const errorDescription = error.response.data.message;
-    //     // setErrorMessage(errorDescription);
-    //     console.log(error)
-    //   })
-    // }, [userId])
+    //Getting the location information from Location.js
+    useEffect(() => {
+        axios.get(`${API_URL}/users/${_id}`)
+        .then((response) => {
+          console.log(response.data.user)
+          setCity(response.data.user.location.split(' ')[0])
+          setCountryCode(response.data.user.location.split(' ')[1])
+        }).catch((error) => {console.log(error)
+        })
+      }, [_id])
 
-
-    //const URL = `https://api.openweathermap.org/data/2.5/weather?q=istanbul,tr&appid=${process.env.REACT_APP_WEATHER_KEY}`
-
-    //const URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${process.env.REACT_APP_WEATHER_KEY}`
     //const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}${countryCode}&appid=${process.env.REACT_APP_WEATHER_KEY}`
-    //const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}`
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=berlin,de&appid=${process.env.REACT_APP_WEATHER_KEY}`
+
+
+    useEffect(() => {
+        axios
+            .get(URL)
+            .then((response) => {setData(response.data)
+            checkCondition(response.data.weather[0].main);
+            })
+            .catch((err) => console.log(err));
+    }, [])
 
     // useEffect(() => {
-    //     axios
-    //         .get(URL)
-    //         .then((response) => {
-    //             setData(response.data)
-    //             checkCondition(response.data.weather[0].main);
-    //         })
-
-    //         .catch((err) => console.log(err));
-    // }, [])
+    //     fetch(URL)
+    //     .then((res) => res.json())
+    //     .then((result) => {
+    //         setData(result)
+    //         checkCondition(result.weather[0].main)
+    //     }).catch((err) => console.log(err))
+    // },[])
 
     const weatherCondition = data.weather ? data?.weather[0]?.main : "";
 
@@ -79,8 +76,13 @@ function Weather() {
                 setSvg(snowSVG);
                 break;
             case "Clear":
-                setSvg(clearDaySVG);
-                break;
+                if(time >= 17 || time <= 7) {
+                    setSvg(clearNightSVG)
+                    break;
+                } else {
+                    setSvg(clearDaySVG);
+                    break;
+                }
             case "Fog":
             case "Mist":
                 setSvg(fogSVG);
@@ -99,23 +101,21 @@ function Weather() {
 
     return (
         <div className='weather-app'>
-            <div className='weather-container'>
-                <div className='weather-top'>
+                <div className='weather-container'>
                     <div className='weather-location'>
                         <p className='bold'>{data.name}</p>
                     </div>
-                    <div>
+                    
                         <img className="svg-icon" src={svg} alt="weather icon"></img>
-                    </div>
+                   
                     <div className='weather-temp'>
                         {data.main ? <h1>{(data.main.temp - 273.15).toFixed()}°C</h1> : null}
                     </div>
                     <div className='weather-description'>
                         {data.weather ? <p>{data.weather[0].description}</p> : null}
                     </div>
-
+                    
                 </div>
-            </div>
         </div>
     );
 }

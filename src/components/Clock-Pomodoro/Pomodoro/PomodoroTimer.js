@@ -1,69 +1,72 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./PomodoroTimer.css"
 import 'react-circular-progressbar/dist/styles.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import PomodoroComponent from './PomodoroComponent';
 import CountdownAnimation from './CountdownAnimation';
-import  SettingContext from "../../../context/settings.context";
-
+import { SettingContext } from "../../../context/settings.context";
 import Button from './Button';
-import { useContext } from 'react';
 
-function PomodoroTimer(props) {
-    const { pomodoro,stopTimer, executing, setCurrentTimer, settingButton, startAnimate, startTimer, pauseTimer, children } = useContext(SettingContext)
+
+function PomodoroTimer() {
+    const { pomodoro, executing, setCurrentTimer, settingButton, startAnimate, startTimer, pauseTimer, updateExecute, children } = useContext(SettingContext)
+    useEffect(() => { updateExecute(executing) }, [executing, startAnimate])
+
+
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //     }, 1000);
+    //     return () => clearInterval(interval);
+    //   }, [0]);
 
     return (
         <div className="container">
             <h1>Pomodoro</h1>
-            {pomodoro == 0 ?
-                <PomodoroComponent /> :
+
+            {pomodoro !== 0 ?
                 <>
-                    <ul className='labels'>
+                    <ul className="labels">
                         <li>
                             <Button
                                 title="Work"
-                                activeClass={executing.active === 'work' ? 'active-label': undefined}
+                                activeClass={executing.active === 'work' ? 'active-label' : 'settings-btn'}
                                 _callback={() => setCurrentTimer('work')}
                             />
                         </li>
-
                         <li>
                             <Button
                                 title="Short Break"
-                                activeClass={executing.active === 'short' ? 'active-label': undefined}
+                                activeClass={executing.active === 'short' ? 'active-label' : 'settings-btn'}
                                 _callback={() => setCurrentTimer('short')}
                             />
                         </li>
-
                         <li>
                             <Button
                                 title="Long Break"
-                                activeClass={executing.active === 'long' ? 'active-label': undefined}
+                                activeClass={executing.active === 'long' ? 'active-label' : 'settings-btn'}
                                 _callback={() => setCurrentTimer('long')}
                             />
                         </li>
                     </ul>
-                    <Button title="Settings" _callback={settingButton}/>
-                    <div className='time-container'>
-                        <div clasName="time-wrapper">
+                    <Button activeClass={"settings-btn"}title="Settings" _callback={settingButton} />
+                    <div className="timer-container">
+                        <div className="time-wrapper">
                             <CountdownAnimation
                                 key={pomodoro}
-                                tomer={pomodoro}
+                                timer={pomodoro}
                                 animate={startAnimate}
-                                >
+                            >
                                 {children}
                             </CountdownAnimation>
                         </div>
                     </div>
-                    <div className='button-wrapper'>
-                        <Button title="Start" className={!startAnimate && 'active'} _callback={startTimer}/>
-                        <Button title="Start" className={startAnimate && 'active'} _callback={pauseTimer}/>
-
+                    <div className="button-wrapper">
+                        <Button title="Start" activeClass={!startAnimate ? 'active' : undefined} _callback={startTimer} />
+                        <Button  title="Pause" activeClass={startAnimate ? 'active' : undefined} _callback={pauseTimer} />
                     </div>
-                </>
-            }
+                </> : <PomodoroComponent />}
         </div>
-    );
+    )
 }
 
 export default PomodoroTimer;

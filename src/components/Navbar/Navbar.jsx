@@ -18,7 +18,8 @@ function Navbar() {
         <ul>
             {isLoggedIn && (
               <li className="navLi">
-                <Link  className="navButton">Settings</Link>
+                <Link  to="/pomodoro" className="navButton">Pomodoro</Link>
+                <Link  className="navButton">Profile</Link>
                 <Link className="navButton" onClick={logOutUser} >Logout</Link>
               </li>
             )}
