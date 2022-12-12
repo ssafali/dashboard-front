@@ -112,3 +112,6 @@
     background: rgba(240, 91, 91, 0.5);
     border-radius: 20px;
   }
+  .news-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(231, 49, 49, 0.5);
+  }

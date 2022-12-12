@@ -1,5 +1,7 @@
-.cl {
-    height: 300px;
-    width: 600px;
-    background-color: black;
+.todo-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    left: 2%;
+    position: fixed;
 }

@@ -46,7 +46,7 @@ function LoginPage() {
           type="email" 
           name="email" 
           value={email} 
-          onChange={handleEmail} 
+          onChange={handleEmail}
         />
 
         <label>Password:</label>

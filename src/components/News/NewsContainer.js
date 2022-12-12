@@ -5,9 +5,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const API_KEY = process.env.REACT_APP_NEWS_API
 
-
 function NewsContainer() {
-    const urlAll = "https://newsapi.org/v2/top-headlines?country=de&apiKey="
+    const urlAll = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
     const urlByCategory = "https://newsapi.org/v2/top-headlines?country=us&category="
 
     const [filter, setFilter] = useState(" ");
@@ -26,11 +25,11 @@ function NewsContainer() {
     //Get news by category
     const handleFiltering = (e) => {
         const id = e.target.id;
-        
-        fetch(`${urlByCategory}${filter}&apiKey=${API_KEY}`)
+        setFilter(id)
+
+        fetch(`${urlByCategory}${e.target.id}&apiKey=${API_KEY}`)
         .then((response) => response.json())
         .then((result) => {
-        setFilter(id)
             
             setResults(result.articles)
         })

@@ -13,7 +13,8 @@ import rain from '../../assets/weather/rain.svg'
 
 import ToDoContainer from "../../components/toDoComponents/ToDoContainer";
 import Collapsible from "../../components/Collapsible/Collapsible";
-
+import NewToDo from "../../components/toDoComponents/NewToDo";
+import TodoCard from "../../components/toDoComponents/TodoCard";
 function Dashboard(props) {
 const API_URL = "http://localhost:5005";
 
@@ -27,22 +28,25 @@ const [journalActive, setJournalActive] = useState(false)
       <div>
         <div>
           <div>
-              {/*<ClockPomodoro /> */}
+              {/* <ClockPomodoro /> */}
           </div>
+          {/* <WeatherSmall/> */}
+
           <div>
-            {/* <ToDoContainer/> */}
-            {/* <Collapsible label={<Weather/>}> */}
+            <ToDoContainer/>
+            {/* <Collapsible label={<Weather/>}> 
               <WeatherSmall/>
-            {/* </Collapsible> */}
+            </Collapsible> */}
             {/* <Collapsible>
               <Weather/>
             </Collapsible> */}
           </div>
           <div>
-            
+            {/* <NewToDo/> */}
           </div>
         </div>
         {/* <NewsContainer /> */}
+
         <div className="icons-svg">
           <Collapsible label={<ToDoContainer/>}>
             <div className="todo-group">
@@ -50,6 +54,7 @@ const [journalActive, setJournalActive] = useState(false)
               <p>To do</p>
             </div>
           </Collapsible>
+            {/* <TodoCard/> */}
           <div className="notes-group">
             <img className='notes-svg' src={notesSVG} width="50px" />
             <p>Notes</p>

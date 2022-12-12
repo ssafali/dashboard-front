@@ -3,10 +3,14 @@ import React, { useState } from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import './NewToDo.css'
+import {AuthContext} from '../../context/auth.context'
+import {useEffect, useContext } from 'react';
+import TodoCard from './TodoCard';
 
 function NewToDo(props) {
     const API_URL = "http://localhost:5005";
-
+    const {user} = useContext(AuthContext)
+    
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('general');
@@ -26,14 +30,11 @@ function NewToDo(props) {
     const handleNew = (e) => {
         setNew({title, content, category});
     }
-    const handleAddedCategory = (e) => {
-        setCategory(e.target.value)
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const requestBody = { title, content, category };
-
+        const requestBody = { title, content, category, user:user._id };
+        console.log(user)
         axios.post(`${API_URL}/todos/new`, requestBody)
             .then((response) => {
                 console.log(response)
@@ -43,22 +44,12 @@ function NewToDo(props) {
                 setErrorMessage(errorDescription);
             })
     }
-    const options = [
-        'general', 'work', 'home', "hobbies"
-      ];
-      const defaultOption = options[0];
 
     return (
         <div className="new-form">
-            <form onSubmit={handleSubmit}>
-                <div className='form'>
-                    <input autocomplete="off" className='new-title' placeholder='Title' onChange={handleTitle} value={title} name='title' />
-                    <textarea autocomplete="off" className='new-content' placeholder='New to do' onChange={handleContent} value={content} name='content' />
-                    {/* <Dropdown autocomplete="off" className='' options={options} value={defaultOption} onChange={handleCategory} placeholder="Select a category" /> */}
-                    {/* <button className="add-button" type="submit">Add</button> */}
-                </div>
-            </form>
-
+            <TodoCard title={title} content={content} category={category}
+            handleTitle={handleTitle} handleContent={handleContent} handleCategory={handleCategory} handleSubmit={handleSubmit} 
+            />
         </div>
     );
 }
