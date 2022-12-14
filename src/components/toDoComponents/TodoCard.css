@@ -35,7 +35,7 @@
 
 .todo-filters p.active {
     color: rgb(50,186,124) !important;
-    
+    background: transparent!important;
 }
 
 .todo-content {
@@ -51,6 +51,18 @@
     width: 100%;
 }
 
+#delete-check{
+  display: none;
+}
+
+input[type='checkbox']+label{
+  background: url('../../assets/misc/delete-circle.svg');
+  width: 24px;
+  height: 22px;
+  cursor: pointer;
+}
+
+/* 
 .checkbox-rounded{
     width: 1em;
     height: 1em;
@@ -73,9 +85,9 @@
   .checkbox-rounded:hover {
     opacity: 1;
     background-color: rgb(50,186,124);
-  }
+  } */
 
-  input[class='checkbox-rounded']:checked {
+  /* input[class='checkbox-rounded']:checked {
     width: 1em;
     height: 1em;
     margin-right: 6px;
@@ -88,9 +100,9 @@
     outline: none;
     cursor: pointer;
     opacity: 0.8;
-  }
+  } */
 
-  .checkbox-rounded-delete {
+  /* .checkbox-rounded-delete {
     margin-top: 8px;
     position: absolute;
     right: 3%;
@@ -113,7 +125,7 @@
     opacity: 1;
     background-color: rgb(204, 72, 72);
 
-  }
+  } */
 
 .todo-input:focus {
     border-bottom-color:#f28482;

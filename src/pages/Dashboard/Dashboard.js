@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
-import { AuthContext } from "../../context/auth.context";
-import { useContext } from "react";
-import ProfilePage from "../ProfilePage/ProfilePage";
 import Weather from "../../components/Weather/Weather";
 import WeatherSmall from "../../components/Weather/WeatherSmall"
 import Clock from "../../components/Clock-Pomodoro/Clock";
 import todoSVG from '../../assets/misc/todo-2.svg'
-import notesSVG from '../../assets/misc/notes.svg'
 import newsSVG from '../../assets/misc/newspaper.svg'
 import NewsContainer from "../../components/News/NewsContainer";
 import ToDoContainer from "../../components/toDoComponents/ToDoContainer";
-import TodoCard from "../../components/toDoComponents/TodoCard";
 
 function Dashboard() {
-  const API_URL = "http://localhost:5005";
-
   const [toDoActive, setTodoActive] = useState(false);
-  const [notesActive, setNotesActive] = useState(false);
-  const [clockActive, setClockActive] = useState(true);
   const [newsActive, setNewsActive] = useState(false);
   const [weather, setWeather] = useState('small')
 

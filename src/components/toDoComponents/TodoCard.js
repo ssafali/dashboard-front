@@ -44,14 +44,15 @@ function TodoCard(props) {
                         checked={todo.completed}
                         onClick={() => {props.handleCompleted(todo)}}
                         onChange={() => {console.log("changed", todo)}}
-                        className="checkbox-rounded"
-                />
+                        className="checkbox-rounded">
+                </input>
                <input type={'checkbox'}
                         checked={todo.completed}
                         onClick={() => {props.handleDeleted(todo)}}
                         onChange={() => {console.log("deleted", todo)}}
                         className="checkbox-rounded-delete"
-                />
+                        id='delete-check'>
+                </input> <label className='checker' for='delete-check'></label>
               </li>
             ))}
           </ul>

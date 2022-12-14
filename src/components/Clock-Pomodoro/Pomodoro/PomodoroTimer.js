@@ -7,18 +7,10 @@ import CountdownAnimation from './CountdownAnimation';
 import { SettingContext } from "../../../context/settings.context";
 import Button from './Button';
 
-
 function PomodoroTimer() {
     const { pomodoro, executing, setCurrentTimer, settingButton, startAnimate, startTimer, pauseTimer, updateExecute, children } = useContext(SettingContext)
+    
     useEffect(() => { updateExecute(executing) }, [executing, startAnimate])
-
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //     }, 1000);
-    //     return () => clearInterval(interval);
-    //   }, [0]);
-
     return (
         <div className="container">
             <h1>Pomodoro</h1>
@@ -48,7 +40,7 @@ function PomodoroTimer() {
                             />
                         </li>
                     </ul>
-                    <Button activeClass={"settings-btn"}title="Settings" _callback={settingButton} />
+                    <Button activeClass={"settings-btn settings"}title="Settings" _callback={settingButton} />
                     <div className="timer-container">
                         <div className="time-wrapper">
                             <CountdownAnimation
@@ -61,7 +53,7 @@ function PomodoroTimer() {
                         </div>
                     </div>
                     <div className="button-wrapper">
-                        <Button title="Start" activeClass={!startAnimate ? 'active' : undefined} _callback={startTimer} />
+                        <Button className='' title="Start" activeClass={!startAnimate ? 'active' : undefined} _callback={startTimer} />
                         <Button  title="Pause" activeClass={startAnimate ? 'active' : undefined} _callback={pauseTimer} />
                     </div>
                 </> : <PomodoroComponent />}

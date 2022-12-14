@@ -1,27 +1,19 @@
 import React, { createContext, useState } from 'react';
-
+import notify from '../assets/misc/success.mp3'
+import { useEffect } from 'react';
 export const SettingContext = createContext();
 
 const SettingsContextProvider = (props) => {
-    const [pomodoro, setPomodoro] = useState(0);
+    const [pomodoro, setPomodoro] = useState(25);
     const [executing, setExecuting] = useState({});
     const [startAnimate, setStartAnimate] = useState(false);
-
-
-    // const audio = new Audio(NotificationSound);
-
-
-    // import NotificationSound from '../../../assets/misc/success.mp3'
-    // function playAudio() {
-    //     return audio.play();
-    //   }
-
-    //   if({pomodoro} === 2) {
-    //     playAudio();
-    //   }
-
-
-
+    
+    useEffect(() => { updateExecute(executing) }, [executing, startAnimate])
+    
+    const audio = new Audio(notify);
+    const playAudio = () => {
+        return audio.play();
+      }
 
     const startTimer = () => {
         setStartAnimate(true);
@@ -77,6 +69,16 @@ const SettingsContextProvider = (props) => {
     const children = ({remainingTime}) => {
         const minutes = Math.floor(remainingTime / 60);
         const seconds = remainingTime % 60;
+            // if(minutes == 0 && seconds == 0) {
+            //     playAudio();
+            // } 
+            if(minutes < 10 && seconds < 10) {
+                return `0${minutes}:0${seconds}`
+            } else if (minutes < 10 && seconds >= 10) {
+                return `0${minutes}:${seconds}`
+            } else if (minutes > 10 && seconds < 10) {
+                return `${minutes}:0${seconds}`
+            }
         return `${minutes}:${seconds}`
     }
 

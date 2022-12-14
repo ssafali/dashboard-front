@@ -8,8 +8,11 @@
     min-height: 65vh;
     background: rgba(8, 8, 17,0.2);
     border-radius: 20px;
+    font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    
 }
-  
   .container h1 {
     font-size:2.8rem;
     margin:0;
@@ -25,18 +28,46 @@
     font-size: .8rem;
     padding:.4rem .3rem;
     margin-top: .8rem;
-    background-color: #0C0E1B;
+
+    
+    background-color: #32587a;
+
+
     border-radius: 1.5rem;
+    font-weight: 700;
+    box-shadow: rgba(0, 0, 0, 0.637) 0px 5px 15px;
+    
   }
 
-  .settings-btn {
+  ul.labels {
+    letter-spacing: 2px;
+  }
+
+  button.settings-btn {
     border-radius: 1.5rem;
+    background-color: #32587a;
     
+  }
+
+  button.settings-btn:hover {
+    background-color: transparent;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .settings-btn:hover{
+    background-color: #32587a;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .settings:hover {
+    scale: 1.02;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px!important;
+    background-color: #32587a!important;
   }
 
   .active-label {
     color: #0C0E1B;
-    background-color: #afa9a8;
+    background-color: #f1eeee;
     border-radius: 1.5rem;
   }
   
@@ -78,16 +109,20 @@
     border:none;
     border-radius:3rem;
     margin:0.2rem;;
-    background:#0C0E1B;
+    background:#0c0e1be5;
     min-width: 80px;
     cursor: pointer;
   }
   
   .button-wrapper button.active {
     color: #0C0E1B;
-    background-color: #C9CCEA;
+    background-color: #f1eeee;
     border: 1px solid #0C0E1B;
     border-radius: 5px;
+  }
+
+  .active:hover {
+    background-color: #2b4c68!important;
   }
   .form-container {
     text-align: center;
