@@ -1,45 +1,81 @@
 .weatherContainer {
-    max-width: 350px;
-    height: 220px;
+    max-width: 290px;
+    height: 200px;
     display:flex;
     flex-direction: column;
     text-align: center;
-    margin: auto;
-    padding: 0 1rem;
-    top: 20%;
-    right: 3%;
-    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 2rem;
+    top: 25%;
+    right: 4%;
+    justify-content: space-evenly;
     position: absolute;
+}
+
+.weatherContainer:hover {
+    scale: 1.02;
+    cursor: pointer;
+}
+
+.weatherLocation h3{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: ivory;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-bottom: 20px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.09), 0 2px 2px rgba(0, 0, 0, 0.09),
+    0 4px 4px rgba(0, 0, 0, 0.09), 0 8px 8px rgba(0, 0, 0, 0.09),
+    0 16px 16px rgba(0, 0, 0, 0.09), 0 32px 32px rgba(0, 0, 0, 0.09);
+}
+
+.weatherTemp {
+    margin-top: 20px;
+    margin-left: 100px;
+    position: absolute;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.09), 0 2px 2px rgba(0, 0, 0, 0.09),
+    0 4px 4px rgba(0, 0, 0, 0.09), 0 8px 8px rgba(0, 0, 0, 0.09),
+    0 16px 16px rgba(0, 0, 0, 0.09), 0 32px 32px rgba(0, 0, 0, 0.09);
 
 }
 
-.weatherApp .weatherTop {
+.weatherTop {
     width: 120%;
-    margin: 1rem auto;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.weatherApp .weatherDescription{
+
+.weatherDescription{
     position: relative;
-    top: 110%;
-    right: 0%;
+    top: -16%;
+    right: -100%;
     transform-origin: 0 0;
-    transform: rotate(-90deg);
+    transform: rotate(-270deg);
+    color: ivory;
+    font-size: 16px;
+    letter-spacing: 2px;
 }
 
 .weatherDescription p {
     font-size: larger;
 }
 
-.weatherApp .weatherBottom {
+.weatherBottom {
     display: flex;
     justify-content: space-evenly;
     text-align: center;
     width: 120%;
     margin: 0rem auto;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 12px;
     background-color: rgba(255,255,255,0.5);
+}
+
+.weatherBottom span {
+    font-size: 14px;
 }
 
 .bold {
@@ -48,4 +84,9 @@
 
 .svgIcon {
     height: 160px;
+    
+}
+
+.bottom-details {
+ font-weight: 500;   
 }

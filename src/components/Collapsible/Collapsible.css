@@ -1,0 +1,17 @@
+
+.collapsible .content-parent {
+    height: 0px;
+    overflow: hidden;
+    transition: height ease 0.4;
+}
+
+.collapsible .content.show {
+    height: 280px
+}
+
+
+
+.collapsible .content-parent.show {
+    height: auto;
+    
+}

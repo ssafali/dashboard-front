@@ -59,12 +59,12 @@ function SignupPage() {
           onChange={handlePassword}
         />
         <label>Location:</label>
-        <Location value={location}  onSearchChange={handleOnSearchChange}/>
-        <button className="signup-button" type="submit" value="signup">Sign Up</button>
+        <Location className="location" value={location}  onSearchChange={handleOnSearchChange}/>
+        <button className="signup-btn" type="submit" value="signup">Sign Up</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <p className="login">Already have account?</p>
+      <Link className="login-btn" to={"/login"}> Login</Link>
     </div>
   );
 }

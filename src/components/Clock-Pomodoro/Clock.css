@@ -1,6 +1,6 @@
 .time-container {
   border-radius: 8px;
-  padding: 120px 120px;
+  padding: 30px;
   align-items: center;
 }
 
@@ -46,5 +46,6 @@
 
 .seconds {
     font-size: 20px;
-
+    position: absolute;
+    top: 18.5%;
 }

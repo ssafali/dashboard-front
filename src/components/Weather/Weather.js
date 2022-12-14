@@ -84,12 +84,13 @@ function Weather() {
       <div className="weatherContainer">
         <div className="weatherTop">
           <div className="weatherLocation">
-            <p className="bold">{data.name}</p>
-          </div>
+            <h3 className="bold">{data.name}</h3>
+          
           <div className="weatherTemp">
             {data.main ? (
-              <h1>{(data.main.temp - 273.15).toFixed()}°C</h1>
+              <h1>{(data.main.temp - 273.15).toFixed()} °C</h1>
             ) : null}
+          </div>
           </div>
           <div className="weatherDescription">
             {data.weather ? <p>{data.weather[0].description}</p> : null}
@@ -101,16 +102,16 @@ function Weather() {
         <div className="weatherBottom">
           <div className="feels">
             {data.main ? (
-              <p>{(data.main.feels_like - 273.15).toFixed()}°C</p>
+              <p className="bottom-details">{(data.main.feels_like - 273.15).toFixed()}°</p>
             ) : null}
             <p className="bold">Feels Like</p>
           </div>
           <div className="humidity">
-            {data.main ? <p>{data.main.humidity}</p> : null}
+            {data.main ? <p className="bottom-details">{data.main.humidity}<span>%</span></p> : null}
             <p className="bold">Humidity</p>
           </div>
           <div className="windSpeed">
-            {data.wind ? <p>{data.wind.speed}</p> : null}
+            {data.wind ? <p className="bottom-details">{data.wind.speed}<span> km/h</span></p> : null}
             <p className="bold">Wind Speed</p>
           </div>
         </div>

@@ -1,6 +1,5 @@
 
 import "./NewsContainer.css";
-import "./News";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const API_KEY = process.env.REACT_APP_NEWS_API
@@ -18,7 +17,6 @@ function NewsContainer() {
                 .get(`${urlAll}${API_KEY}`)
                 .then((response) => {
                     setResults(response.data.articles)
-                    .catch(err => console.log(err));
                 })
         },[])
 
@@ -60,7 +58,6 @@ function NewsContainer() {
 //   };
 
 
-    
         // useEffect(() => {
         //     if(filter != " ") {
         //     axios.get(`${urlByCategory}${filter}&apiKey=${API_KEY}`)
@@ -69,8 +66,6 @@ function NewsContainer() {
         // }
         // }, [])
     
-    
-
     return (
         <div className="news-container">
             <div className="category-buttons">
@@ -84,16 +79,16 @@ function NewsContainer() {
             </div>
             {results.map((result) => {
                 return (
-                    <>
-                        <div onClick={() => window.open(result.url)} key={result.description} className="news-card">
-                            <div className="news-element">
+                    <div key={result.description}>
+                        <div  onClick={() => window.open(result.url)}  className="news-card">
+                            <div className="news-element" key={result.description}>
                                 <img src={result.urlToImage} alt="news-photo"></img>
                                 <h6 className="source"> {result.source.name}</h6>
                                 <h6 className="title">{result.title.split(' - ')[0]}.</h6>
                                 {/* <p className="description">{result.description}</p> */}
                             </div>
                         </div>
-                    </>
+                    </div>
 
                 )
 

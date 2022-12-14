@@ -63,7 +63,6 @@ function LoginPage() {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <div className="signup-container">
-        <p>Don't have an account yet?</p>
         <Link className="signup-button" to={"/signup"}> Sign Up</Link>
       </div>
     </div>
