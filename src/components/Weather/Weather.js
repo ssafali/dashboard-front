@@ -84,7 +84,7 @@ function Weather() {
       <div className="weatherContainer">
         <div className="weatherTop">
           <div className="weatherLocation">
-            <h3 className="bold">{data.name}</h3>
+            <h3 className="city">{data.name}</h3>
           
           <div className="weatherTemp">
             {data.main ? (
@@ -107,12 +107,12 @@ function Weather() {
             <p className="bold">Feels Like</p>
           </div>
           <div className="humidity">
-            {data.main ? <p className="bottom-details">{data.main.humidity}<span>%</span></p> : null}
-            <p className="bold">Humidity</p>
+            {data.main ? <p className="bottom-details vertical-line">{data.main.humidity}<span>%</span></p> : null}
+            <p className="bold " >Humidity</p>
           </div>
           <div className="windSpeed">
-            {data.wind ? <p className="bottom-details">{data.wind.speed}<span> km/h</span></p> : null}
-            <p className="bold">Wind Speed</p>
+            {data.wind ? <p className="bottom-details vertical-line">{data.wind.speed}<span> km/h</span></p> : null}
+            <p className="bold vertical-line">Wind Speed</p>
           </div>
         </div>
       </div>

@@ -5,16 +5,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 75vh;
+    min-height: 65vh;
     background: rgba(8, 8, 17,0.2);
     border-radius: 20px;
-    margin-top: 10px;
-    padding-top: 15px;
 }
   
   .container h1 {
     font-size:2.8rem;
-    margin-bottom:0.2rem;
+    margin:0;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.09), 0 2px 2px rgba(0, 0, 0, 0.09),
     0 4px 4px rgba(0, 0, 0, 0.09), 0 8px 8px rgba(0, 0, 0, 0.09),
     0 16px 16px rgba(0, 0, 0, 0.09), 0 32px 32px rgba(0, 0, 0, 0.09);
@@ -33,6 +31,7 @@
 
   .settings-btn {
     border-radius: 1.5rem;
+    
   }
 
   .active-label {
@@ -46,9 +45,11 @@
     flex:2;
     align-items: center;
     justify-content: center;
+    margin-top: 6px;
   }
   
   .time-wrapper {
+    margin-top: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,6 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 50px;
     padding:2rem;
     border-radius: 5px;
   }

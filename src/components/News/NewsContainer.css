@@ -7,8 +7,11 @@
     height: 280px;
     padding: 25px 20px;
     gap: 26px;
-    width: 1200px;
-    border-radius: 20px;
+    width: 950px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     flex-wrap: nowrap;
@@ -16,9 +19,8 @@
     overflow-y: hidden;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: absolute;
-    right: 350px;
-    bottom: 50px;
-
+    right: 20%;
+    bottom: 4%;
 }
 
 .news-container img {
@@ -110,6 +112,8 @@
 .news-container::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
     opacity: 1;
+    border-radius: 20px;
+    
   }
 
 .news-container::-webkit-scrollbar-thumb {

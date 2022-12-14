@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
-import { Grid, Box } from "@mui/material";
 import { AuthContext } from "../../context/auth.context";
 import TodoCard from "./TodoCard";
 import './ToDoContainer.css'
@@ -11,25 +10,53 @@ function ToDoContainer() {
   const storedToken = localStorage.getItem("authToken");
   const [toDosList, setTodos] = useState([]);
   const [content, setContent] = useState('');
-  const [completed, setCompleted] = useState(false)
-
+console.log(toDosList)
 const handleContent = (e) => {
     setContent(e.target.value);
 }
 
 const handleCompleted = (todo) => {
   const requestBody = {id: todo._id, completed:!todo.completed}
+  console.log(requestBody)
   axios.post(`${API_URL}/todos/edit`, requestBody,  {headers: { Authorization: `Bearer ${storedToken}` }})
-  .then(() => {
+  .then((newObj) => {
     const newTodos = toDosList.map(t => {
-      if(t._id === todo._id) {
+      if(t._id === newObj.data._id) {
         t.completed = !t.completed;
       }
       return t;
     })
-    setTodos([[...newTodos]])
+    console.log(newTodos)
+    setTodos(newTodos)
   })
+}
 
+const getAllTodos = () => {
+  axios.get(`${API_URL}/todos/${user._id}`, {headers: { Authorization: `Bearer ${storedToken}` }})
+  .then((response) => {
+    setTodos(response.data)
+  });
+}
+
+const getActiveTodos = () => {
+  const active = toDosList.filter((item) => 
+  item.completed.search(false));
+  setTodos(active)
+  }
+
+
+const getCompletedTodos = () => {
+  const completed = toDosList.filter((item) => 
+  item.completed.search(true));
+  setTodos(completed)
+}
+
+const handleDeleted = (todo) => {
+  const id = todo._id;
+  console.log(id);
+  axios.delete(`${API_URL}/todos/delete/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } }           )
+    .then(() => getAllTodos())
+    
 }
 
 const handleSubmit = (e) => {
@@ -45,42 +72,23 @@ const handleSubmit = (e) => {
           const errorDescription = error.response.data.message;
           console.log(errorDescription)
       })
+      setContent('')
 }
 
   // Get all todos of the user
   useEffect(() => {
-    axios.get(`${API_URL}/todos/${user._id}`, {headers: { Authorization: `Bearer ${storedToken}` }})
-    .then((response) => {
-      setTodos(response.data)
-    });
-  }, [user]);
+    getAllTodos();
+  }, []);
 
   console.log(toDosList);
+
+
   return (
-      <div className="todo-container">
-          {/* <div className='todo-cards' container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-            {toDosList.map((todo) => {
-              //return <TodoCard title={todo.title} content={todo.content} category={todo.category}/>
-              return <div>{todo.content} </div>
-            })}
-          </div> */}
-          <form onSubmit={handleSubmit}>
-            <input placeholder="New to do"
-                    value={content}
-                    onChange={handleContent}
-            />
-          </form>
-          <ul>
-            {toDosList.map(todo => (
-              <li>
-                <input type={'checkbox'}
-                        checked={todo.completed}
-                        onClick={(e) => {handleCompleted(todo); handleContent(e)}}
-                />
-                {todo.completed ? <del>{todo.content}</del> : todo.content}
-              </li>
-            ))}
-          </ul>
+      <div >
+           <TodoCard content={content} toDosList={toDosList} handleCompleted={handleCompleted}
+  handleContent={handleContent} handleSubmit={handleSubmit} handleDeleted={handleDeleted}
+  getActiveTodos={getActiveTodos} getAllTodos={getAllTodos} getCompletedTodos={getCompletedTodos}
+  />
       </div>
   );
 }
