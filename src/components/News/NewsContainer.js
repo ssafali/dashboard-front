@@ -6,8 +6,8 @@ import genericNews from '../../assets/misc/news-generic.png'
 const API_KEY = '16258ef50c9b4e4cb760082190cf5994'
 
 function NewsContainer() {
-    const urlAll = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
-    const urlByCategory = "https://newsapi.org/v2/top-headlines?country=us&category="
+    const urlAll = "http://newsapi.org/v2/top-headlines?country=us&apiKey="
+    const urlByCategory = "http://newsapi.org/v2/top-headlines?country=us&category="
 
     const [filter, setFilter] = useState(" ");
     const [results, setResults] = useState([]);
