@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import "./PomodoroTimer.css"
 import 'react-circular-progressbar/dist/styles.css';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import PomodoroComponent from './PomodoroComponent';
 import CountdownAnimation from './CountdownAnimation';
 import { SettingContext } from "../../../context/settings.context";
 import Button from './Button';
-
+ 
 function PomodoroTimer() {
     const { pomodoro, executing, setCurrentTimer, settingButton, startAnimate, startTimer, pauseTimer, updateExecute, children } = useContext(SettingContext)
     
@@ -44,7 +44,7 @@ function PomodoroTimer() {
                     <div className="timer-container">
                         <div className="time-wrapper">
                             <CountdownAnimation
-                                key={pomodoro}
+                                // key={pomodoro}
                                 timer={pomodoro}
                                 animate={startAnimate}
                             >

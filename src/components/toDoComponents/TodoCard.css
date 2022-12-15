@@ -21,7 +21,7 @@
 .todo-filters p {
     font-size: 16px;
     margin-top: 12px;
-    margin-bottom: 6px;   
+    margin-bottom: 7px;   
     cursor: pointer;
     transition: .4s;
     color:ivory;
@@ -48,20 +48,86 @@
     text-align: start;
     margin: 5px -20px;
     font-size: 16px;
-    width: 100%;
+    width: 92%;
 }
 
-#delete-check{
+.check-class, .delete-class{
   display: none;
 }
 
-input[type='checkbox']+label{
-  background: url('../../assets/misc/delete-circle.svg');
-  width: 24px;
-  height: 22px;
+
+input[type='checkbox']+.complete-label{
+  background: url('../../assets/misc/checkbox-green.svg') no-repeat;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
+  scale: 0.8;
+  transition: 0.2s;
+
+  opacity: 0.7;
+  margin-top: -2px;
+  position: absolute;
+  right: 14%;
 }
 
+input[type='checkbox']+label:hover {
+  scale: 1;
+  opacity:1;
+}
+
+input[type='checkbox']+.delete-label{
+  background: url('../../assets/misc/delete-circle-red.svg') no-repeat;
+  width: 26px;
+  height: 32px;
+  cursor: pointer;
+  scale:0.8;
+  transition: 0.2s;
+  opacity: 0.5;
+
+  margin-top: -3px;
+  position: absolute;
+  right: 3%;
+}
+
+
+input[type='checkbox']+label:last-child:hover {
+  scale: 1;
+}
+
+.todo-input:focus {
+    border-bottom-color:#f28482;
+    border-width: 2px;
+    padding: 6px;
+    height: 40px;
+    font-size: 16px;
+    width:inherit;
+
+}
+.todo-input:focus::placeholder {
+    color: #fdfdfd;
+  }
+
+.todo-input {
+    margin-top:5px;
+    margin-left: 4px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom-style: solid;
+    border-width: 2px;
+    border-color: rgb(41, 46, 51);
+    color: rgba(255, 255, 255, 0.658);
+    height: 30px;
+  
+    padding-left: 8px;
+    transition: 0.5s ease;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Rounded checkbox below */
 /* 
 .checkbox-rounded{
     width: 1em;
@@ -126,37 +192,3 @@ input[type='checkbox']+label{
     background-color: rgb(204, 72, 72);
 
   } */
-
-.todo-input:focus {
-    border-bottom-color:#f28482;
-    border-width: 2px;
-    padding: 6px;
-    height: 40px;
-    font-size: 16px;
-    width:inherit;
-
-}
-.todo-input:focus::placeholder {
-    color: #fdfdfd;
-  }
-
-.todo-input {
-    margin-top:5px;
-    margin-left: 4px;
-    background: transparent;
-    border: none;
-    outline: none;
-    border-bottom-style: solid;
-    border-width: 2px;
-    border-color: rgb(41, 46, 51);
-    color: rgba(255, 255, 255, 0.658);
-    height: 30px;
-  
-    padding-left: 8px;
-    transition: 0.5s ease;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-}
-
-

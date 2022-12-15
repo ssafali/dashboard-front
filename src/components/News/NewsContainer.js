@@ -2,6 +2,7 @@
 import "./NewsContainer.css";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import genericNews from '../../assets/misc/news-generic.png'
 const API_KEY = process.env.REACT_APP_NEWS_API
 
 function NewsContainer() {
@@ -33,38 +34,6 @@ function NewsContainer() {
         })
     }
 
-    // useEffect(() => {
-    //     async function fetchFiltered() {
-    //         let res = await fetch(`${urlByCategory}${filter}&apiKey=${API_KEY}`);
-    //         res = await res.json()
-    //         setResults(res)
-    //     }
-    //     fetchFiltered()
-    // },[filter])
-
-
-// handleFiltering = (e) => {
-//     const idValue = e.target.id;
-//     fetch(
-//       `https://newsapi.org/v2/top-headlines?country=us&category=${idValue}&apiKey=${APIKEY}`
-//     )
-//       .then((response) => response.json())
-//       .then((result) => {
-//         this.setState({
-//           newsResults: [...result.articles],
-//           filterTerm: idValue,
-//         });
-//       });
-//   };
-
-
-        // useEffect(() => {
-        //     if(filter != " ") {
-        //     axios.get(`${urlByCategory}${filter}&apiKey=${API_KEY}`)
-        //         .then(res => setResults(res.data.articles))
-        //         .catch(err => console.log(err))
-        // }
-        // }, [])
     
     return (
         <div className="news-container">
@@ -82,7 +51,7 @@ function NewsContainer() {
                     <div key={result.description}>
                         <div  onClick={() => window.open(result.url)}  className="news-card">
                             <div className="news-element" key={result.description}>
-                                <img src={result.urlToImage} alt="news-photo"></img>
+                                {result.urlToImage ? <img src={result.urlToImage} alt="news-photo"></img> : <img id='generic' src={genericNews} alt="generic news icon"></img>}
                                 <h6 className="source"> {result.source.name}</h6>
                                 <h6 className="title">{result.title.split(' - ')[0]}.</h6>
                                 {/* <p className="description">{result.description}</p> */}

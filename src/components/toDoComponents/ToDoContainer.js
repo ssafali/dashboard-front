@@ -9,15 +9,15 @@ function ToDoContainer() {
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
   const [toDosList, setTodos] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
   const [content, setContent] = useState('');
-console.log(toDosList)
+
 const handleContent = (e) => {
     setContent(e.target.value);
 }
 
 const handleCompleted = (todo) => {
   const requestBody = {id: todo._id, completed:!todo.completed}
-  console.log(requestBody)
   axios.post(`${API_URL}/todos/edit`, requestBody,  {headers: { Authorization: `Bearer ${storedToken}` }})
   .then((newObj) => {
     const newTodos = toDosList.map(t => {
@@ -26,7 +26,6 @@ const handleCompleted = (todo) => {
       }
       return t;
     })
-    console.log(newTodos)
     setTodos(newTodos)
   })
 }
@@ -35,28 +34,30 @@ const getAllTodos = () => {
   axios.get(`${API_URL}/todos/${user._id}`, {headers: { Authorization: `Bearer ${storedToken}` }})
   .then((response) => {
     setTodos(response.data)
+    setFilteredList(response.data)
+    console.log('clicked')
+    return response.data;
   });
 }
 
 const getActiveTodos = () => {
-  const active = toDosList.filter((item) => 
-  item.completed.search(false));
-  setTodos(active)
+  const active = toDosList.filter((todo) =>{
+    
+   return !todo.completed;
+  })
+  setFilteredList(active)
   }
 
-
 const getCompletedTodos = () => {
-  const completed = toDosList.filter((item) => 
-  item.completed.search(true));
-  setTodos(completed)
+  const completed = toDosList.filter((todo) =>{
+    return todo.completed;
+  })  
+  setFilteredList(completed)
 }
 
-const handleDeleted = (todo) => {
-  const id = todo._id;
-  console.log(id);
+const handleDeleted = (id) => {
   axios.delete(`${API_URL}/todos/delete/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } }           )
     .then(() => getAllTodos())
-    
 }
 
 const handleSubmit = (e) => {
@@ -67,11 +68,13 @@ const handleSubmit = (e) => {
   axios.post(`${API_URL}/todos/new`, requestBody,  {headers: { Authorization: `Bearer ${storedToken}` }})
       .then((response) => {
         setTodos([...toDosList, response.data]);
+        setFilteredList([...toDosList, response.data])
       })
       .catch((error) => {
           const errorDescription = error.response.data.message;
           console.log(errorDescription)
       })
+      
       setContent('')
 }
 
@@ -80,12 +83,9 @@ const handleSubmit = (e) => {
     getAllTodos();
   }, []);
 
-  console.log(toDosList);
-
-
   return (
       <div >
-           <TodoCard content={content} toDosList={toDosList} handleCompleted={handleCompleted}
+           <TodoCard setFilteredList={setFilteredList} filteredList={filteredList} content={content} toDosList={toDosList} handleCompleted={handleCompleted}
   handleContent={handleContent} handleSubmit={handleSubmit} handleDeleted={handleDeleted}
   getActiveTodos={getActiveTodos} getAllTodos={getAllTodos} getCompletedTodos={getCompletedTodos}
   />
