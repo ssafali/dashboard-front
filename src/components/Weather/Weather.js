@@ -20,7 +20,9 @@ function Weather() {
   const [data, setData] = useState({});
   const [svg, setSvg] = useState();
 
-  const API_URL = "http://localhost:5005";
+  //const API_URL = "http://localhost:5005";
+  const API_URL = 'https://jungle-green-macaw-sock.cyclic.app';
+
   const storedToken = localStorage.getItem("authToken");
   useEffect(() => {
     axios
