@@ -2,8 +2,8 @@
 import "./NewsContainer.css";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import genericNews from '../../assets/misc/news-generic.png'
-const API_KEY = '16258ef50c9b4e4cb760082190cf5994'
+import genericNews from '../../assets/misc/news-image.jpg'
+const API_KEY = process.env.REACT_APP_NEWS_API
 
 function NewsContainer() {
     const urlAll = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
@@ -29,7 +29,7 @@ function NewsContainer() {
         fetch(`${urlByCategory}${e.target.id}&apiKey=${API_KEY}`)
         .then((response) => response.json())
         .then((result) => {
-            
+            setResults([])
             setResults(result.articles)
         })
     }

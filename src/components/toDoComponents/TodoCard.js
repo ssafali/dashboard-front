@@ -32,7 +32,7 @@ function TodoCard(props) {
                 {todo.completed ? <del>{todo.content}</del> : todo.content }
                <input type={'checkbox'}
                         checked={todo.completed}
-                        onClick={() => {props.handleCompleted(todo); }}
+                        onClick={() => {props.handleCompleted(todo);  }}
                         onChange={() => { }}
                         id={todo._id}
                         className="check-class">

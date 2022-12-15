@@ -71,7 +71,9 @@
     color: ivory;
     text-align: center;
     margin-left: 30px;
-    background-color: rgba(69, 123, 157, 0.805);
+    /* background-color: rgba(206, 11, 11, 0.705); */
+    /* background-color: rgba(69, 123, 157, 0.805); */
+    background-color: rgba(203, 61, 61, 0.805);
     
     height: 1.3rem;
     width: 81%;

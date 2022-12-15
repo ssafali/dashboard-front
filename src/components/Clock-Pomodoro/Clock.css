@@ -22,10 +22,10 @@
   transition: 0.1s;
 }
 
-.clock:hover {
+/* .clock:hover {
   cursor: pointer;
   transform: translateY(-5px);
-}
+} */
 
 .date {
   font-size: 30px;

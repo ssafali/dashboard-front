@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import axios from "axios";
 
-// const API_URL = "http://localhost:5005";
-const API_URL = 'https://jungle-green-macaw-sock.cyclic.app';
+ const API_URL = "http://localhost:5005";
+//const API_URL = 'https://jungle-green-macaw-sock.cyclic.app';
 
 
 function LoginPage() {

@@ -21,10 +21,9 @@ function Weather() {
   const [data, setData] = useState({});
   const [svg, setSvg] = useState();
 
-  //const API_URL = "http://localhost:5005";
-  const API_URL = 'https://jungle-green-macaw-sock.cyclic.app';
+  const API_URL = "http://localhost:5005";
+  //const API_URL = 'https://jungle-green-macaw-sock.cyclic.app';
   const storedToken = localStorage.getItem('authToken');
-  const key = '8de83d4337e32dcba762bd86c5fbaca9'
 
   useEffect(() => {
    axios
@@ -34,7 +33,7 @@ function Weather() {
         const countryCode = response.data.user.location.split(" ")[1]
         //Call weather api
         axios
-        .get(`https://api.openweathermap.org/data/2.5/weather?q=${city}${countryCode}&appid=${key}`)
+        .get(`https://api.openweathermap.org/data/2.5/weather?q=${city}${countryCode}&appid=${process.env.REACT_APP_WEATHER_KEY}`)
         .then((response) => {
           setData(response.data);
           checkCondition(response.data.weather[0].main);
