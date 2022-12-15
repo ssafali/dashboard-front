@@ -37,7 +37,6 @@ const getAllTodos = () => {
   .then((response) => {
     setTodos(response.data)
     setFilteredList(response.data)
-    console.log('clicked')
     return response.data;
   });
 }

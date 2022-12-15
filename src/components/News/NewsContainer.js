@@ -3,7 +3,7 @@ import "./NewsContainer.css";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import genericNews from '../../assets/misc/news-generic.png'
-const API_KEY = process.env.REACT_APP_NEWS_API
+const API_KEY = '16258ef50c9b4e4cb760082190cf5994'
 
 function NewsContainer() {
     const urlAll = "https://newsapi.org/v2/top-headlines?country=us&apiKey="
