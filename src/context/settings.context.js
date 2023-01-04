@@ -1,5 +1,4 @@
 import React, { createContext, useState } from 'react';
-import notify from '../assets/misc/success.mp3'
 import { useEffect } from 'react';
 export const SettingContext = createContext();
 
@@ -10,10 +9,6 @@ const SettingsContextProvider = (props) => {
     
     useEffect(() => { updateExecute(executing) }, [executing, startAnimate])
     
-    const audio = new Audio(notify);
-    const playAudio = () => {
-        return audio.play();
-      }
 
     const startTimer = () => {
         setStartAnimate(true);

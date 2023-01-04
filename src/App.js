@@ -10,12 +10,17 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import PomodoroTimer from "./components/Clock-Pomodoro/Pomodoro/PomodoroTimer";
 
+import NoteCard  from './components/Notes/NoteCard'
+import NewNote  from './components/Notes/NewNote'
+import NotesContainer  from './components/Notes/NotesContainer'
+
+
 function App() {
   return (
     <div className="App">
-    <Navbar/>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        
+        <Route path="/" element={<HomePage /> } />
         <Route
           path="/profile"
           element={
@@ -28,7 +33,9 @@ function App() {
         <Route
           path="/pomodoro"
           element={
-            <PomodoroTimer/>
+            <IsPrivate>
+              <PomodoroTimer/>
+            </IsPrivate>
           }
         />
 
@@ -48,6 +55,16 @@ function App() {
             </IsAnon>
           }
         />
+
+        {/* <Route
+          path='/notes'
+          element={
+            <IsPrivate>
+              <NotesContainer/>
+         
+            </IsPrivate>
+          }
+        /> */}
       </Routes>
     </div>
   );

@@ -2,6 +2,8 @@
   border-radius: 8px;
   padding: 30px;
   align-items: center;
+  margin-top: 0vh;
+  
 }
 
 .time-dashboard {
@@ -11,6 +13,8 @@
 }
 
 .clock {
+  display: flex;
+  flex-direction: row;
   font-size: 64px;
   font-weight: 700;
   font-size: 120px;
@@ -22,10 +26,10 @@
   transition: 0.1s;
 }
 
-/* .clock:hover {
+.clock:hover {
   cursor: pointer;
   transform: translateY(-5px);
-} */
+}
 
 .date {
   font-size: 30px;
@@ -44,8 +48,8 @@
 
 }
 
-.seconds {
-    font-size: 20px;
-    position: absolute;
-    top: 18.5%;
+.clock p {
+    font-size: 18px;
+    margin-top: 29px;
+    margin-left: 5px;
 }

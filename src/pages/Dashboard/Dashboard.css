@@ -1,89 +1,178 @@
 .dashboard {
-    font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
+  font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .icons-svg {
-    display: flex;
-    flex-direction: row;
-    position: fixed;
-    gap: 20px;
-    right: 2%;
-    bottom: 0.5%;
-    justify-content: space-evenly;
-    text-align: center;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  gap: 20px;
+  right: 2%;
+  bottom: 0.5%;
+  justify-content: space-evenly;
+  text-align: center;
 }
 
 .icons-svg p {
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-weight: 700;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.icon-item-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    gap: 7px;
+.icon-item-todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  gap: 7px;
 }
 
 .todo-svg {
-    transition: .3s;
-    margin-bottom: -25px;
+  transition: 0.3s;
+  margin-bottom: -25px;
 }
 
-
-.todo-svg:hover, .notes-svg:hover, .news-svg:hover {
-    transform: translateY(-5px);
+.todo-svg:hover,
+.notes-svg:hover,
+.news-svg:hover {
+  transform: translateY(-5px);
 }
 
 .notes-svg {
-    transition: 0.3s;
-    margin-bottom: 10px;
-    margin-right: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+  margin-top: 9px;
+  margin-left: 12px;
+}
+
+.icon-item-notes p {
+  margin-top: 3px;
+  margin-left: 12px;
 }
 
 .news-svg {
-    transition: 0.3s;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    position: relative;
-    bottom: -9px;
-    cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  bottom: -9px;
+  cursor: pointer;
 }
 
 @-webkit-keyframes show-news {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes show-news {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-moz-keyframes show-news {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @-o-keyframes show-news {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.show-news {
-    -moz-animation: show-news 1.5s ease;
-    -o-animation: show-news 1.5s ease;
-    animation: show-news 1.5s ease;
-    -webkit-animation: show-news 1.5s ease;
+.show-news,
+.show-notes,
+form.form {
+  -moz-animation: show-news 1s ease;
+  -o-animation: show-news 1s ease;
+  animation: show-news 1s ease;
+  -webkit-animation: show-news 1s ease;
+}
+
+@-webkit-keyframes pomodoro {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 1;
+  }
+}
+
+@keyframes pomodoro {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 1;
+  }
+}
+@-moz-keyframes pomodoro {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 1;
+  }
+}
+@-o-keyframes pomodoro {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 1;
+  }
+}
+
+.container {
+  -moz-animation: pomodoro 0.5s ease-out;
+  -o-animation: pomodoro 0.5s ease-out;
+  animation: pomodoro 0.5s ease-out;
+  -webkit-animation: pomodoro 0.5s ease-out;
+}
+
+@-webkit-keyframes weather-big {
+  from {
+    transform: rotate(0deg);
+    margin-right: 22px;
+
+  }
+  to {
+    transform: rotate(360deg);
+    margin-right: 22px;
+  }
+}
+
+@keyframes weather-big {
+  from {
+    transform: rotate(0deg);
+    margin-right: 22px;
+
+  }
+  to {
+    transform: rotate(360deg);
+    margin-right: 22px;
+  }
 }

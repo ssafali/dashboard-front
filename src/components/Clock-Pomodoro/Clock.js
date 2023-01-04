@@ -15,7 +15,7 @@ function ClockPomodoro() {
     return (
         <div className="time-container">
             <div className="time-dashboard">
-                <div className="clock">{clock}<span className="seconds">{sec}</span></div>
+                <div className="clock">{clock}<p className="seconds">{sec}</p></div>
                 <div >
                     <div className="date">{date}</div>
                 </div>

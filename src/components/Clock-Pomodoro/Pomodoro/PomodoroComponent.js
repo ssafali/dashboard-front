@@ -56,7 +56,7 @@ function PomodoroComponent() {
                     
                     <input className='input' name="longBreak" onChange={handleChange} value={newTimer.long} />
                 </div>
-                <Button activeClass={'settings-btn'} title="Set Timer" _callback={handleSubmit} />
+                <Button activeClass={'settings-btn set-timer-btn'} title="Set Timer" _callback={handleSubmit} />
             </form>
 
         </div>

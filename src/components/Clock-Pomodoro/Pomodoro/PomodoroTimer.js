@@ -4,15 +4,20 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useContext } from 'react';
 import PomodoroComponent from './PomodoroComponent';
 import CountdownAnimation from './CountdownAnimation';
+import { useNavigate } from "react-router-dom";
+
 import { SettingContext } from "../../../context/settings.context";
 import Button from './Button';
  
 function PomodoroTimer() {
+    const navigate = useNavigate();
+
     const { pomodoro, executing, setCurrentTimer, settingButton, startAnimate, startTimer, pauseTimer, updateExecute, children } = useContext(SettingContext)
     
     useEffect(() => { updateExecute(executing) }, [executing, startAnimate])
     return (
         <div className="container">
+            <button className='return' onClick={() => navigate('/')}>&larr;</button>
             <h1>Pomodoro</h1>
 
             {pomodoro !== 0 ?
@@ -53,8 +58,8 @@ function PomodoroTimer() {
                         </div>
                     </div>
                     <div className="button-wrapper">
-                        <Button className='' title="Start" activeClass={!startAnimate ? 'active' : undefined} _callback={startTimer} />
-                        <Button  title="Pause" activeClass={startAnimate ? 'active' : undefined} _callback={pauseTimer} />
+                        <Button className='' title="Start" activeClass={!startAnimate ? 'active pause-btn' : 'pause-btn'} _callback={startTimer} />
+                        <Button  title="Pause" activeClass={startAnimate ? 'active pause-btn' : 'pause-btn'} _callback={pauseTimer} />
                     </div>
                 </> : <PomodoroComponent />}
         </div>
